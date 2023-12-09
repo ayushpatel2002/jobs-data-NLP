@@ -69,4 +69,28 @@ Provides insights into machine learning application in text classification, eval
 ## Usage
 This project offers insights into applying NLP techniques for real-world problems like job advertisement classification. It demonstrates text processing, feature extraction, and machine learning model application in a structured way.
 
+## Data Analysis and Observations
+
+### Model Accuracy Analysis
+- **Count Vector Representation** achieves the highest average cross-validation accuracy at `85.15%` for job advertisement descriptions. This suggests that frequency and specificity of keywords in job descriptions are critical factors.
+- **Unweighted Vector Representation** shows a `78.21%` accuracy for descriptions and `78.99%` for titles alone, indicating a slightly better performance with titles.
+- **TF-IDF Weighted Vector Representation** records `76.67%` accuracy for descriptions and `76.29%` for titles, with a marginal edge for descriptions.
+- Combining titles and descriptions does not significantly improve accuracy; in fact, it slightly reduces it to `77.83%` for unweighted and `77.06%` for weighted vectors.
+
+### Key Insights
+1. **Frequency Matters**: Count Vector Representation's effectiveness is likely due to the repetitive nature of important terms in job descriptions.
+2. **Keyword Specificity**: Field-specific jargon or keywords in job descriptions are captured effectively by Count vectors.
+3. **Dimensionality**: The high-dimensional nature of Count vectors aids in capturing a wide array of terms from the corpus.
+
+### Analysis of Job Advertisement Title and Description on Model Accuracy
+- Titles alone demonstrate a good predictive capability, slightly outperforming descriptions in unweighted vector scenarios.
+- Combining title and description does not enhance, but rather slightly decreases, the model's accuracy.
+
+### Probable Reasons for Observed Results
+- **Redundancy and Dilution**: Combining titles with descriptions might introduce redundancy and dilute important features.
+- **Different Linguistic Patterns**: Titles and descriptions have distinct structures, potentially introducing noise when combined.
+- **Representation Limitations**: Current vector representation methods might not effectively capture the combined semantics.
+- **Overfitting Risk**: The risk of overfitting may increase when combining titles and descriptions, especially in smaller datasets.
+- **Merging Strategy**: The simple concatenation approach might not be optimal for merging title and description information.
+
 Note: The data for this project consists of a collection of job advertisements categorized into different folders based on job types.
